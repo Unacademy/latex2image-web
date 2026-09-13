@@ -1,4 +1,149 @@
-# LaTeX2Image
+# latex2image-web
+
+> LaTeX to image converter with web UI using Node.js / Docker
+
+---
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Tech Stack](#tech-stack)
+3. [Repository Structure](#repository-structure)
+4. [Key Components](#key-components)
+5. [Setup & Installation](#setup--installation)
+6. [Running the Application](#running-the-application)
+7. [Infrastructure & CI/CD](#infrastructure--cicd)
+8. [Contributing](#contributing)
+
+---
+
+## Overview
+
+**latex2image-web** is part of the [Unacademy](https://github.com/unacademy) engineering ecosystem.
+
+LaTeX to image converter with web UI using Node.js / Docker
+
+**Topics / Tags:** _None_
+
+---
+
+## Tech Stack
+
+| Attribute | Value |
+|-----------|-------|
+| **Primary Language** | Unknown |
+| **Framework / Platform** | Express.js |
+| **Package Manager** | — |
+
+### Dependencies
+
+**Runtime Dependencies:**
+- `bluebird`
+- `body-parser`
+- `express`
+- `express-promise-router`
+- `express-queue`
+- `sharp`
+- `shelljs`
+
+
+---
+
+## Repository Structure
+
+```
+latex2image-web/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── app.js
+├── package-lock.json
+├── package.json
+├── screenshots
+├── static/
+│   ├── custom.css
+│   ├── index.html
+│   ├── latex2image-client.js
+│   ├── logo.svg
+```
+
+---
+
+## Key Components
+
+Below is an analysis of the key files and modules:
+
+| File / Directory | Purpose |
+|-----------------|---------|
+| `LICENSE` | Source file |
+| `README.md` | Source file |
+| `app.js` | Source file |
+| `package.json` | Source file |
+| `screenshots/main.png` | Source file |
+| `static/custom.css` | Source file |
+| `static/index.html` | Source file |
+| `static/latex2image-client.js` | Source file |
+| `static/logo.svg` | Source file |
+
+> **Note:** Only the first 20 non-trivial files are listed. See the repository tree above for the complete structure.
+
+---
+
+## Setup & Installation
+
+### Prerequisites
+
+- Git (`git --version`)
+- Unknown runtime installed
+
+
+
+### Steps
+
+```bash
+# 1. Clone the repository
+git clone git@github.com:unacademy/latex2image-web.git
+cd latex2image-web
+
+# 2. Install dependencies
+npm install      # or yarn install
+```
+
+### Available Scripts
+
+```bash
+# test
+npm run test   # echo "Error: no test specified" && exit 1
+
+```
+
+
+---
+
+## Running the Application
+
+_Refer to the project's build system or CI configuration._
+
+---
+
+## Infrastructure & CI/CD
+
+_No infra configuration detected._
+
+---
+
+## Contributing
+
+1. Create a feature branch: `git checkout -b feat/your-feature`
+2. Commit your changes: `git commit -m "feat: describe your change"`
+3. Push and open a PR targeting `master`
+4. Ensure all CI checks pass before requesting review
+
+---
+
+## Original README (Excerpt)
+
+> # LaTeX2Image
 
 ![Image](screenshots/main.png)
 
@@ -10,82 +155,9 @@ Bootstrap and jQuery are used in the web interface, with AJAX calls made to the 
 
 ## Live Demo
 
-The application is accessible at [https://latex2image.joeraut.com](https://latex2image.joeraut.com)
+The application is access
 
-## Requirements
+---
 
-### Operating system
-
-I made use of Ubuntu 18.04. Other Linux distributions should work without problems.
-
-### Docker
-
-[Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/) with [non-root user support](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
-
-### [latex-docker](https://github.com/blang/latex-docker)
-
-Docker image containing the required LaTeX packages preinstalled.
-
-Pull the image:
-
-```
-docker pull blang/latex:ubuntu
-```
-
-### Node.js
-
-I made use of v10.14.2, anything newer should be fine.
-
-After cloning or downloading this project, run the following to install local dependencies from npm:
-
-```
-cd latex2image-web/
-npm install
-```
-
-## Usage
-
-To run:
-
-```
-node app.js
-```
-
-The web interface will be accessible at `http://localhost:3001` by default. The port and HTTP URL can be modified inside `app.js`.
-
-Enter a LaTeX equation, for example `\frac{a}{b}`, and press Convert. The result will be displayed below the button.
-
-## Security
-
-LaTeX is powerful, with the reading and writing of external files and execution of terminal commands possible. It was decided that a new isolated Docker container be launched for every conversion.
-
-The container is only able to access the local `temp/<id>/` directory and has no network access.
-
-Additionally, the compilation process will be killed after 5 seconds if not complete; this is to safeguard against infinite loops and other troublesome LaTeX quirks.
-
-## Internals
-
-### Commands used:
-
-* `latex` - Converts `.tex` source file to `.dvi` intermediate
-* `dvisvgm` - Converts `.dvi` file to `.svg` vector image
-
-We use [sharp](https://www.npmjs.com/package/sharp) to convert the SVG file to PNG and JPG images where required.
-
-## Notes
-
-* The directories `temp/` and `output/` will be generated automatically inside the `latex2image-web/` directory upon first launch.
-* `temp/` stores temporary `.tex`, `.dvi`, and `.svg` files during compilation in an inner `temp/<id>/` directory, which is deleted upon completion of the conversion.
-* Final output images are stored in `output/`, and are never deleted.
-
-## Authors
-
-* Joseph Rautenbach - [joeraut](https://github.com/joeraut)
-
-## Issues
-
-For any issues or bugs, please submit an issue or pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+*This README was auto-generated on 2026-09-14 by the Unacademy repo-summarizer tool.*
+*For corrections or additions, edit this file directly or open an issue.*
